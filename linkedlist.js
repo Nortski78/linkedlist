@@ -23,11 +23,15 @@ export function LinkedList() {
 
     function prepend(value) {
         const newNode = Node(value);
+
+        if ( head === null ) return (head = newNode);
+
         const temp = head;
         head = newNode;
         head.setNextNode(temp);
         length--;
     }
+    
     function size() {
         return length;
     }
