@@ -7,3 +7,9 @@ list.append(200);
 list.append(300);
 
 list.toString();
+
+list.prepend(400);
+
+list.toString();
+list.prepend(50);
+list.toString();
