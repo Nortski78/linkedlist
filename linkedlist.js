@@ -2,16 +2,16 @@ import { Node } from "./node.js";
 
 export function LinkedList() {
 
-    let head = null;
+    let headNode = null;
     let length = 0;
 
     // Append works because obj names are references to javascript objects
     function append(value) {
         const newNode = Node(value);       
 
-        if ( head === null ) return (head = newNode);
+        if ( headNode === null ) return (headNode = newNode);
 
-        let pointer = head;
+        let pointer = headNode;
         
         while (pointer.getNextNode() !== null) {
             pointer = pointer.getNextNode();
@@ -24,23 +24,33 @@ export function LinkedList() {
     function prepend(value) {
         const newNode = Node(value);
 
-        if ( head === null ) return (head = newNode);
+        if ( headNode === null ) return (headNode = newNode);
 
-        const temp = head;
-        head = newNode;
-        head.setNextNode(temp);
+        const temp = headNode;
+        headNode = newNode;
+        headNode.setNextNode(temp);
         length--;
     }
     
     function size() {
         return length;
     }
-    /* function head() {
 
-    } */
-    function tail() {
-
+    function head() {
+        if(!headNode) return null;
+        return headNode.getValue();
     }
+
+    function tail() {
+        if(!headNode) return null;
+
+        let pointer = headNode;
+        while(pointer.getNextNode() !== null) {
+            pointer = pointer.getNextNode();
+        }
+        return pointer.getValue();
+    }
+    
     function at(pos) {
 
     }
@@ -55,9 +65,9 @@ export function LinkedList() {
     }
 
     const toString = () => {
-        if (!head) return null;
+        if (!headNode) return null;
         
-        let pointer = head;
+        let pointer = headNode;
         let result = "";
 
         while (pointer.getNextNode() !== null) {
