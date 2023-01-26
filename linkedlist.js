@@ -7,7 +7,8 @@ export function LinkedList() {
 
     // Append works because obj names are references to javascript objects
     function append(value) {
-        const newNode = Node(value);       
+        const newNode = Node(value);      
+        length ++; 
 
         if ( headNode === null ) return (headNode = newNode);
 
@@ -18,18 +19,17 @@ export function LinkedList() {
         }
 
         pointer.setNextNode(newNode);
-        length++;
     }
 
     function prepend(value) {
         const newNode = Node(value);
+        length++;
 
         if ( headNode === null ) return (headNode = newNode);
 
         const temp = headNode;
         headNode = newNode;
         headNode.setNextNode(temp);
-        length--;
     }
     
     function size() {
@@ -52,8 +52,16 @@ export function LinkedList() {
     }
     
     function at(pos) {
+        if (!headNode) return null;
+        if (pos >= length) return "Out of bounds";
 
+        let pointer = headNode;
+        for(let i = 0; i < pos; i++) {
+            pointer = pointer.getNextNode();
+        }
+        return pointer.getValue();
     }
+
     function pop() {
 
     }

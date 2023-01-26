@@ -14,5 +14,7 @@ list.toString();
 list.prepend(50);
 list.toString();
 
-console.log(list.head());
-console.log(list.tail());
+//console.log(list.head());
+//console.log(list.tail());
+console.log(list.at(5));
+//console.log(list.size());
