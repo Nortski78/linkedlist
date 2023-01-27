@@ -5,11 +5,9 @@ let list = LinkedList();
 list.append(100);
 list.append(200);
 list.append(300);
-
 console.log(list.toString());
 
 list.prepend(400);
-
 console.log(list.toString());
 list.prepend(50);
 console.log(list.toString());
