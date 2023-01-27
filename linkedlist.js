@@ -63,8 +63,17 @@ export function LinkedList() {
     }
 
     function pop() {
+        if(!headNode) return null
+        if(length === 1) return headNode = null;
 
+        let pointer = headNode;
+        for(let i = 0; i < length - 2; ++i) {
+            pointer = pointer.getNextNode();
+        }
+        pointer.setNextNode(null);
+        length--;
     }
+
     function contains() {
 
     }
@@ -74,7 +83,7 @@ export function LinkedList() {
 
     const toString = () => {
         if (!headNode) return null;
-        
+               
         let pointer = headNode;
         let result = "";
 
@@ -85,7 +94,7 @@ export function LinkedList() {
 
         // for the tail
         result = result.concat(`( ${pointer.getValue()} ) --> ${pointer.getNextNode()}`);
-        return console.log(result);
+        return result;
       }; 
 
     return { append, prepend, size, head, tail, at, pop, contains, find, toString, };
