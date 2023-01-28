@@ -21,3 +21,5 @@ list.pop();
 console.log(list.toString());
 list.pop();
 console.log(list.toString());
+console.log(list.contains(400));
+console.log(list.contains(200));

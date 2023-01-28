@@ -74,9 +74,18 @@ export function LinkedList() {
         length--;
     }
 
-    function contains() {
+    function contains(val) {
+        if(!headNode) return false;
 
+        let pointer = headNode;
+        for(let i = 0; i < length; ++i) {
+            if(pointer.getValue() === val) return true;
+            pointer = pointer.getNextNode();
+        }
+
+        return false;
     }
+
     function find(val) {
 
     }
