@@ -21,5 +21,7 @@ list.pop();
 console.log(list.toString());
 list.pop();
 console.log(list.toString());
+list.append(400);
 console.log(list.contains(400));
 console.log(list.contains(200));
+console.log(list.find(400));

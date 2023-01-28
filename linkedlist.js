@@ -87,7 +87,18 @@ export function LinkedList() {
     }
 
     function find(val) {
+        if(!headNode) return null;
 
+        let pointer = headNode;
+        let result = [];
+
+        for(let i = 0; i < length; ++i) {
+            if(pointer.getValue() == val) result.push(i);
+            pointer = pointer.getNextNode();
+        }
+
+        //if(result.length == 0) return "Not found";
+        return result;
     }
 
     const toString = () => {
